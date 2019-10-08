@@ -1,0 +1,19 @@
+ var cnnString  = "XXX";
+        
+    using (SqlConnection conn = new SqlConnection(cnnString))
+    {
+        conn.Open();
+
+        // Insert Signup        
+        var signupInsert = "INSERT INTO [dbo].[SubscriberDemo] ([FirstName],[LastName],[SignedUp])" +  
+        "VALUES ('" + e.firstname + "','" + e.lastname + "',GETDATE())";
+                   
+        // Execute and load data into database.
+        using (SqlCommand cmd = new SqlCommand(signupInsert, conn))
+        {
+            var rows = cmd.ExecuteNonQuery();
+        }
+        
+        
+    }
+Let's break dow
